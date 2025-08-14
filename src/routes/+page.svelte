@@ -2,20 +2,25 @@
     
     import papa from 'papaparse';
 	import { onMount } from 'svelte';
-    let countries = [];
+	import { parse } from 'svelte/compiler';
+    let countries: Array<string> = [];
     let selected = null;
 
     onMount(async() => {
         const res = await fetch('/flags_dataset/dataset.csv');
-        const text = await res.txt()
-    })
+        const text = await res.text();
+        const parsed = papa.parse(text, {header: true});
+        countries = parsed.data;
+    });
+
     
     let dataset: string = "/flags_dataset/Flags/";
     let answer = $state("");
 
     
     const randomFlag = () => {
-
+        const idx = Math.floor(Math.random()*countries.length);
+        selected = countries[idx];
     }
 </script>
 
@@ -36,9 +41,13 @@
 
         <div class="next">
             <button class="nextButton">Next</button>
+
+            <button onclick={() => console.log(countries)}>Here</button>
         </div>
     </div>
 </div>
+
+
 
 <style>
     .app {
