@@ -1,6 +1,6 @@
 <script lang="ts">
     
-    import papa from 'papaparse';
+    import Papa from 'papaparse/papaparse.min.js';
 	import { onMount } from 'svelte';
 	import { parse } from 'svelte/compiler';
     let countries: Array<string> = [];
@@ -9,7 +9,7 @@
     onMount(async() => {
         const res = await fetch('/flags_dataset/dataset.csv');
         const text = await res.text();
-        const parsed = papa.parse(text, {header: true});
+        const parsed = Papa.parse(text, {header: true});
         countries = parsed.data;
     });
 
@@ -42,7 +42,7 @@
         <div class="next">
             <button class="nextButton">Next</button>
 
-            <button onclick={() => console.log(countries)}>Here</button>
+            
         </div>
     </div>
 </div>
