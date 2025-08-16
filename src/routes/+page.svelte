@@ -104,7 +104,7 @@
 				<div style="color: red;">You cannot submit blank answer</div>
 			{/if}
 		</div>
-        <div>{country_code} : {country_name}</div>
+        <div>this is the answer:::  {country_code} : {country_name}</div>
 	{/if}
 </div>
 
