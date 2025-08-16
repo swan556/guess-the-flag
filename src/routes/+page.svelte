@@ -9,7 +9,7 @@
 	let answer = $state('');
 
 	const fetch_flag = async () => {
-		fetch("http://10.250.10.232:5000/")
+		fetch("https://flag-guess-game-be.up.railway.app/")
             .then(res => res.json())
             .then(data => {
                 country_name = data.country_name;
@@ -104,6 +104,7 @@
 				<div style="color: red;">You cannot submit blank answer</div>
 			{/if}
 		</div>
+        <div>{country_code} : {country_name}</div>
 	{/if}
 </div>
 
