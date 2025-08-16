@@ -15,6 +15,8 @@
                 country_name = data.country_name;
 		        country_code = data.country_code;
             });
+
+            console.log("fetched: ", country_name, "  ", country_code);
 	};
 
 	const toDashedString = ({ str }: { str: string }): string => {
