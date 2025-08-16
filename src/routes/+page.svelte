@@ -9,11 +9,12 @@
 	let answer = $state('');
 
 	const fetch_flag = async () => {
-		const res = await fetch('http://127.0.0.1:5000/random-flag');
-		let country = await res.json();
-
-		country_name = country.country_name;
-		country_code = country.country_code;
+		fetch("https://flag-guess-game-be.up.railway.app")
+            .then(res => res.json())
+            .then(data => {
+                country_name = data.country_name;
+		        country_code = data.country_code;
+            });
 	};
 
 	const toDashedString = ({ str }: { str: string }): string => {
