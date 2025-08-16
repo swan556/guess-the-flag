@@ -9,7 +9,7 @@
 	let answer = $state('');
 
 	const fetch_flag = async () => {
-		fetch("https://flag-guess-game-be.up.railway.app")
+		fetch("http://10.250.10.232:5000/")
             .then(res => res.json())
             .then(data => {
                 country_name = data.country_name;
